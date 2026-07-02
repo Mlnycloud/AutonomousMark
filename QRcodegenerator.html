@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html> 
+    <body style="margin:0; padding: 20px; background: #0f0f0f; color: white; font-family: cursive;
+    text-align: center;"> 
+    <h1>QR Code Generator </h1>
+    <input id="text" placeholder="Enter link or text..." style="padding: 15px; width: 80%; 
+    font-size: 16px; border-radius: 8px; border: none;"> 
+    <br><br> 
+    <button onclick="genQR()" style="padding: 15px 30px; font-size: 18px; background: #00ff88; 
+    color: black; border: none; border-radius: 10px; cursor: pointer;">Generate</button> 
+    <div id="qr" style="margin-top: 30px;"></div> 
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script> 
+        function genQR(){ 
+            document.getElementById('qr').innerHTML = "";
+            let input = document.getElementById('text').value;
+            if(input.trim() === "") return;
+            new QRCode(document.getElementById('qr'), { 
+                Text:input,
+                width:256,
+                height:256,
+                colorDark:"#ffffff",
+                colorLight:"#0f0f0f"
+            }); 
+            
+        }
+    </script> 
+    </body>
+</html>
